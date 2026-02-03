@@ -17,12 +17,15 @@ public class UserService {
 
     public List<UserDto> getUsersService(){
        return userRepository.findAll().stream().map(user->{
-           return new UserDto(user.getBadgerNum(),
+           return new UserDto(
+                   user.getBadgerNum(),
                    user.getSsn(),
                    user.getName(),
                    user.getGender(),
                    user.getTitle(),
-                   user.getDefaultDeptId());
+                   user.getDefaultDeptId(),
+                   user.getCardNo()
+           ));
        });
     }
 }
