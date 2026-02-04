@@ -6,10 +6,11 @@ import com.example.demo.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
-    private UserRepository userRepository;
+    final private UserRepository userRepository;
     public UserService(UserRepository userRepository){
         this.userRepository=userRepository;
     }
@@ -31,6 +32,16 @@ public class UserService {
 
     public UserDto getUserById(int userId){
 
-               UserEntity user= userRepository.findById(userId);
+               Optional<UserEntity> user= userRepository.findById(userId);
+              if(user.isPresent()){
+                  UserEntity newUser=user.get();
+                  return new UserDto(newUser.getBadgeNum(),
+                          newUser.getSsn(),
+                          newUser.getName(),
+                          newUser.getGender(),
+                          newUser.getTitle(),
+                          newUser.getDefaultDeptId(),
+                          newUser.getCardNo());
+              }
     };
 }

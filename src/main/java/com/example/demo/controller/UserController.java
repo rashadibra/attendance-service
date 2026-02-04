@@ -4,6 +4,7 @@ import com.example.demo.dto.UserDto;
 import com.example.demo.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,7 +25,7 @@ public class UserController {
     }
 
     @GetMapping("/User/{id}")
-    public UserDto getUserbyId(@RequestParam int userId){
-        return UserService.getUserById(userId);
+    public UserDto getUserbyId(@PathVariable int userId){
+        return userService.getUserById(userId);
     }
 }
