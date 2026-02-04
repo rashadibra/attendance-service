@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int USERİD;
+    private int USERID;
 
-    @Column(name = "BADGERNUMBER", nullable = false)
-    private String badgerNum;
+    @Column(name = "BADGENUMBER", nullable = false)
+    private String badgeNum;
 
     @Column(name = "SSN", nullable = false)
     private String ssn;
@@ -33,6 +33,6 @@ public class UserEntity {
     @Column(name = "DEFAULTDEPTID", nullable = false)
     private String defaultDeptId;
 
-    @Column(name = "CardNo")
+    @Column(name = "\"CardNo\"")
     private String cardNo;
 }

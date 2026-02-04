@@ -6,7 +6,6 @@ import com.example.demo.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class UserService {
@@ -17,15 +16,21 @@ public class UserService {
 
     public List<UserDto> getUsersService(){
        return userRepository.findAll().stream().map(user->{
+
            return new UserDto(
-                   user.getBadgerNum(),
+                   user.getBadgeNum(),
                    user.getSsn(),
                    user.getName(),
                    user.getGender(),
                    user.getTitle(),
                    user.getDefaultDeptId(),
                    user.getCardNo()
-           ));
-       });
+           );
+       }).toList();
     }
+
+    public UserDto getUserById(int userId){
+
+               UserEntity user= userRepository.findById(userId);
+    };
 }

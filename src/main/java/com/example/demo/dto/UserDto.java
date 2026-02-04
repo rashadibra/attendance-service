@@ -3,7 +3,7 @@ package com.example.demo.dto;
 import lombok.AllArgsConstructor;
 
 public record UserDto(
-        String badgerNum,
+        String badgeNum,
         String ssn,
         String name,
         String gender,
